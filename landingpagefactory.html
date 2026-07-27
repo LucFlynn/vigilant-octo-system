@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lorem Ipsum &mdash; Landing Page</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --text: #e6edf3;
+    --muted: #9198a1;
+    --accent: #4f8cff;
+    --border: #30363d;
+    --max: 1080px;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(13, 17, 23, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    z-index: 10;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 0;
+  }
+
+  .brand {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-size: 1.125rem;
+  }
+
+  .nav ul {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.9375rem;
+  }
+
+  .nav a:hover { color: var(--text); }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .btn-primary:hover { filter: brightness(1.1); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border);
+  }
+
+  .btn-ghost:hover { border-color: var(--muted); }
+
+  .hero {
+    padding: 96px 0 80px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--muted);
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    margin: 0 0 20px;
+    font-size: clamp(2.25rem, 6vw, 3.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  .lede {
+    max-width: 620px;
+    margin: 0 auto 32px;
+    color: var(--muted);
+    font-size: 1.125rem;
+  }
+
+  .actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  section { padding: 72px 0; }
+
+  .section-head {
+    max-width: 620px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+
+  h2 {
+    margin: 0 0 12px;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    letter-spacing: -0.02em;
+  }
+
+  .section-head p { margin: 0; color: var(--muted); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .card h3 {
+    margin: 0 0 8px;
+    font-size: 1.0625rem;
+  }
+
+  .card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9375rem;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: rgba(79, 140, 255, 0.15);
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 40px 0;
+  }
+
+  .stat strong {
+    display: block;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .stat span {
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
+
+  blockquote {
+    margin: 0;
+    color: var(--text);
+    font-size: 0.9375rem;
+  }
+
+  .who {
+    margin-top: 16px;
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
+
+  .cta {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 56px 32px;
+    text-align: center;
+  }
+
+  form.signup {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+
+  input[type="email"] {
+    padding: 12px 14px;
+    min-width: 260px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 0.9375rem;
+  }
+
+  input[type="email"]:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 0;
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
+
+  .foot {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .foot ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .foot a { color: var(--muted); text-decoration: none; }
+  .foot a:hover { color: var(--text); }
+
+  @media (max-width: 640px) {
+    .nav ul { display: none; }
+    .hero { padding: 64px 0 48px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">Ipsum&nbsp;Co.</div>
+    <nav>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#numbers">Numbers</a></li>
+        <li><a href="#voices">Voices</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary" href="#start">Consectetur</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <span class="eyebrow">Lorem ipsum dolor</span>
+    <h1>Sit amet consectetur adipiscing elit sed do</h1>
+    <p class="lede">
+      Eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#start">Duis aute irure</a>
+      <a class="btn btn-ghost" href="#features">Reprehenderit in</a>
+    </div>
+  </section>
+
+  <section id="features" class="wrap">
+    <div class="section-head">
+      <h2>Excepteur sint occaecat</h2>
+      <p>Cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="icon">01</div>
+        <h3>Voluptate velit</h3>
+        <p>Esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident.</p>
+      </article>
+      <article class="card">
+        <div class="icon">02</div>
+        <h3>Nemo enim ipsam</h3>
+        <p>Voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni.</p>
+      </article>
+      <article class="card">
+        <div class="icon">03</div>
+        <h3>Neque porro quisquam</h3>
+        <p>Est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit sed quia non numquam.</p>
+      </article>
+      <article class="card">
+        <div class="icon">04</div>
+        <h3>Ut enim ad minima</h3>
+        <p>Veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid.</p>
+      </article>
+      <article class="card">
+        <div class="icon">05</div>
+        <h3>Quis autem vel eum</h3>
+        <p>Iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
+      </article>
+      <article class="card">
+        <div class="icon">06</div>
+        <h3>At vero eos et</h3>
+        <p>Accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="numbers" class="wrap">
+    <div class="stats">
+      <div class="stat"><strong>99.9%</strong><span>Tempor incididunt</span></div>
+      <div class="stat"><strong>12k+</strong><span>Labore et dolore</span></div>
+      <div class="stat"><strong>4.8/5</strong><span>Magna aliqua</span></div>
+      <div class="stat"><strong>24/7</strong><span>Minim veniam</span></div>
+    </div>
+  </section>
+
+  <section id="voices" class="wrap">
+    <div class="section-head">
+      <h2>Sed ut perspiciatis</h2>
+      <p>Unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <blockquote>&ldquo;Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.&rdquo;</blockquote>
+        <p class="who">Aliqua Tempor &mdash; Dolor Labs</p>
+      </article>
+      <article class="card">
+        <blockquote>&ldquo;Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores.&rdquo;</blockquote>
+        <p class="who">Minim Veniam &mdash; Nostrud Inc.</p>
+      </article>
+      <article class="card">
+        <blockquote>&ldquo;Quia dolor sit amet consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore.&rdquo;</blockquote>
+        <p class="who">Cillum Fugiat &mdash; Pariatur Group</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="start" class="wrap">
+    <div class="cta">
+      <h2>Quis nostrud exercitation?</h2>
+      <p class="lede">Ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor.</p>
+      <form class="signup" onsubmit="event.preventDefault(); this.reset();">
+        <label for="email" class="sr-only" hidden>Email</label>
+        <input id="email" type="email" placeholder="lorem@ipsum.dev" required />
+        <button class="btn btn-primary" type="submit">Incididunt</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>&copy; 2026 Ipsum Co. Consectetur adipiscing elit.</span>
+    <ul>
+      <li><a href="#features">Dolore</a></li>
+      <li><a href="#numbers">Magna</a></li>
+      <li><a href="#voices">Aliqua</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
